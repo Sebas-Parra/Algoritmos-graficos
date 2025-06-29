@@ -123,7 +123,7 @@ namespace DrawLies2
             int centerX = width / 2;
             int centerY = height / 2;
 
-            using (Graphics g = Graphics.FromImage(lienzo)) // ✅ Dibuja sobre el bitmap
+            using (Graphics g = Graphics.FromImage(lienzo)) 
             {
                 g.Clear(Color.White);
                 mPen = new Pen(Color.Blue, 3);

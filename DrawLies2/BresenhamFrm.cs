@@ -48,7 +48,14 @@ namespace DrawLies2
         private void btnGraficar_Click_1(object sender, EventArgs e)
         {
             Bresenham.ReadData(txtXi, txtYi, txtXf, txtYf);
+            if (!Bresenham.ReadData(txtXi, txtYi, txtXf, txtYf))
+                return;
             Bresenham.PlotShape(picCanvas, dataGridPuntos);
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            Bresenham.InitializeData(txtXi, txtXf, txtYi, txtYf, picCanvas, dataGridPuntos);
         }
     }
 }

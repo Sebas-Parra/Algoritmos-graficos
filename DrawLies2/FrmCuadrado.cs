@@ -33,7 +33,7 @@ namespace DrawLies2
 
         private void FrmCuadrado_Load(object sender, EventArgs e)
         {
-            ObjSquare.InitializeData(txtSide, picCanvas);
+            ObjSquare.InitializeData(txtSide, picCanvas, dataGridPuntos);
             ObjSquare.ConfigurarTabla(dataGridPuntos);
 
             // Aquí se asocia el evento de clic
@@ -55,7 +55,7 @@ namespace DrawLies2
 
         private void btnExit_Click(object sender, EventArgs e)
         {
-            ObjSquare.InitializeData(txtSide, picCanvas);
+            ObjSquare.InitializeData(txtSide, picCanvas, dataGridPuntos);
         }
     }
 }

@@ -26,18 +26,60 @@ namespace DrawLies2
             this.y = 0;
         }
 
-        //Leer los textBox
-        public void LeerDatos(TextBox txtXi, TextBox txtYi, TextBox txtXf, TextBox txtYf)
+        public void InicializarDatos(TextBox txtXi, TextBox txtYi, TextBox txtXf, TextBox txtYf,
+                              DataGridView tabla, PictureBox canvas)
         {
-            if (txtXi.Text == "" || txtYi.Text == "" || txtXf.Text == "" || txtYf.Text == "")
+            
+            txtXi.Text = "";
+            txtYi.Text = "";
+            txtXf.Text = "";
+            txtYf.Text = "";
+
+            tabla.Rows.Clear();
+            tabla.Columns.Clear();
+            tabla.Columns.Add("Ordinal", "Ordinal");
+            tabla.Columns.Add("X", "X");
+            tabla.Columns.Add("Y", "Y");
+
+            
+            using (Graphics g = canvas.CreateGraphics())
             {
-                throw new ArgumentException("Todos los campos deben ser llenados.");
+                g.Clear(Color.White);
+                
             }
-            xi = int.Parse(txtXi.Text);
-            yi = int.Parse(txtYi.Text);
-            x = int.Parse(txtXf.Text);
-            y = int.Parse(txtYf.Text);
         }
+
+        //Leer los textBox
+        public bool LeerDatos(TextBox txtXi, TextBox txtYi, TextBox txtXf, TextBox txtYf)
+        {
+            if (string.IsNullOrWhiteSpace(txtXi.Text) ||
+                string.IsNullOrWhiteSpace(txtYi.Text) ||
+                string.IsNullOrWhiteSpace(txtXf.Text) ||
+                string.IsNullOrWhiteSpace(txtYf.Text))
+            {
+                MessageBox.Show("Todos los campos deben estar llenos.", "Error de entrada", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            if (!int.TryParse(txtXi.Text, out xi) || !int.TryParse(txtYi.Text, out yi) ||
+                !int.TryParse(txtXf.Text, out x) || !int.TryParse(txtYf.Text, out y))
+            {
+                MessageBox.Show("Todos los valores deben ser números enteros válidos.", "Error de entrada", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
+            }
+
+            if (xi < 0 || yi < 0 || x < 0 || y < 0)
+            {
+                MessageBox.Show("Los valores deben ser números enteros positivos.", "Error de entrada", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return false;
+            }
+
+            return true; // Todo fue correcto
+        }
+
+
+
+
 
         public float calcularDiferencialX(int x, int xi)
         {

@@ -67,8 +67,36 @@
     <Compile Include="CirculoFrm.Designer.cs">
       <DependentUpon>CirculoFrm.cs</DependentUpon>
     </Compile>
+    <Compile Include="CohenSutherland.cs" />
     <Compile Include="Cuadrado.cs" />
+    <Compile Include="CurvaBSpline.cs" />
+    <Compile Include="CurvasBezier.cs" />
+    <Compile Include="ElipseBresenham.cs" />
+    <Compile Include="ElipseFrm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ElipseFrm.Designer.cs">
+      <DependentUpon>ElipseFrm.cs</DependentUpon>
+    </Compile>
     <Compile Include="FiguraRelleno.cs" />
+    <Compile Include="FrmBezierAnimado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBezierAnimado.Designer.cs">
+      <DependentUpon>FrmBezierAnimado.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmBSpline.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmBSpline.Designer.cs">
+      <DependentUpon>FrmBSpline.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmCohenSutherland.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCohenSutherland.Designer.cs">
+      <DependentUpon>FrmCohenSutherland.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmCuadrado.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,6 +109,18 @@
     <Compile Include="FrmFiguraRelleno.Designer.cs">
       <DependentUpon>FrmFiguraRelleno.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmHodgman.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmHodgman.Designer.cs">
+      <DependentUpon>FrmHodgman.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmScanline.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmScanline.Designer.cs">
+      <DependentUpon>FrmScanline.cs</DependentUpon>
+    </Compile>
     <Compile Include="Home.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,6 +129,8 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Scanline.cs" />
+    <Compile Include="SutherlandHodgman.cs" />
     <EmbeddedResource Include="AnalizadorDiferencialDigitalFrm.resx">
       <DependentUpon>AnalizadorDiferencialDigitalFrm.cs</DependentUpon>
     </EmbeddedResource>
@@ -98,11 +140,29 @@
     <EmbeddedResource Include="CirculoFrm.resx">
       <DependentUpon>CirculoFrm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ElipseFrm.resx">
+      <DependentUpon>ElipseFrm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmBezierAnimado.resx">
+      <DependentUpon>FrmBezierAnimado.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmBSpline.resx">
+      <DependentUpon>FrmBSpline.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmCohenSutherland.resx">
+      <DependentUpon>FrmCohenSutherland.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmCuadrado.resx">
       <DependentUpon>FrmCuadrado.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmFiguraRelleno.resx">
       <DependentUpon>FrmFiguraRelleno.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmHodgman.resx">
+      <DependentUpon>FrmHodgman.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmScanline.resx">
+      <DependentUpon>FrmScanline.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Home.resx">
       <DependentUpon>Home.cs</DependentUpon>

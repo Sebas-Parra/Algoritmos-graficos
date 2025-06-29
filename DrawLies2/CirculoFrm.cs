@@ -33,6 +33,8 @@ namespace DrawLies2
         private void btnGraficar_Click(object sender, EventArgs e)
         {
             circuloAlgoritmo.ReadData(txtXc, txtYc, txtRadio);
+            if (!circuloAlgoritmo.ReadData(txtXc, txtYc, txtRadio))
+                return;
             circuloAlgoritmo.PlotShape(picCanvas, dataGridPuntos);
         }
 

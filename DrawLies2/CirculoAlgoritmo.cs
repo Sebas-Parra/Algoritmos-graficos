@@ -21,19 +21,27 @@ namespace DrawLies2
             xc = yc = radio = 0;
         }
 
-        public void ReadData(TextBox txtCentroX, TextBox txtCentroY, TextBox txtRadio)
+        public bool ReadData(TextBox txtCentroX, TextBox txtCentroY, TextBox txtRadio)
         {
-            try
+            if (string.IsNullOrWhiteSpace(txtCentroX.Text) ||
+                string.IsNullOrWhiteSpace(txtCentroY.Text) ||
+                string.IsNullOrWhiteSpace(txtRadio.Text))
             {
-                xc = int.Parse(txtCentroX.Text);
-                yc = int.Parse(txtCentroY.Text);
-                radio = int.Parse(txtRadio.Text);
+                MessageBox.Show("Todos los campos deben estar llenos.", "Entrada incompleta", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
             }
-            catch
+
+            if (!int.TryParse(txtCentroX.Text, out xc) || xc < 0 ||
+                !int.TryParse(txtCentroY.Text, out yc) || yc < 0 ||
+                !int.TryParse(txtRadio.Text, out radio) || radio <= 0)
             {
-                MessageBox.Show("Invalid inputs", "Error Message");
+                MessageBox.Show("Ingrese valores numéricos enteros positivos. El radio debe ser mayor a cero.", "Entrada inválida", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
             }
+
+            return true;
         }
+
 
         public void InitializeData(TextBox txtCentroX, TextBox txtCentroY, TextBox txtRadio, PictureBox picCanvas, DataGridView tabla)
         {

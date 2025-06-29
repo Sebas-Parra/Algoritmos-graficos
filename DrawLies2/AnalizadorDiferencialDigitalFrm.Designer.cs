@@ -41,13 +41,14 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.btnLimpiar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.picCanvas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridPuntos)).BeginInit();
             this.SuspendLayout();
             // 
             // picCanvas
             // 
-            this.picCanvas.Location = new System.Drawing.Point(510, 137);
+            this.picCanvas.Location = new System.Drawing.Point(511, 182);
             this.picCanvas.Name = "picCanvas";
             this.picCanvas.Size = new System.Drawing.Size(454, 307);
             this.picCanvas.TabIndex = 0;
@@ -56,7 +57,7 @@
             // 
             // txtXi
             // 
-            this.txtXi.Location = new System.Drawing.Point(196, 34);
+            this.txtXi.Location = new System.Drawing.Point(112, 54);
             this.txtXi.Name = "txtXi";
             this.txtXi.Size = new System.Drawing.Size(100, 22);
             this.txtXi.TabIndex = 1;
@@ -64,7 +65,7 @@
             // 
             // txtXf
             // 
-            this.txtXf.Location = new System.Drawing.Point(196, 96);
+            this.txtXf.Location = new System.Drawing.Point(112, 116);
             this.txtXf.Name = "txtXf";
             this.txtXf.Size = new System.Drawing.Size(100, 22);
             this.txtXf.TabIndex = 2;
@@ -72,7 +73,7 @@
             // 
             // txtYi
             // 
-            this.txtYi.Location = new System.Drawing.Point(196, 156);
+            this.txtYi.Location = new System.Drawing.Point(284, 54);
             this.txtYi.Name = "txtYi";
             this.txtYi.Size = new System.Drawing.Size(100, 22);
             this.txtYi.TabIndex = 3;
@@ -80,7 +81,7 @@
             // 
             // txtYf
             // 
-            this.txtYf.Location = new System.Drawing.Point(196, 220);
+            this.txtYf.Location = new System.Drawing.Point(284, 118);
             this.txtYf.Name = "txtYf";
             this.txtYf.Size = new System.Drawing.Size(100, 22);
             this.txtYf.TabIndex = 4;
@@ -89,7 +90,7 @@
             // btnGraficar
             // 
             this.btnGraficar.Font = new System.Drawing.Font("MV Boli", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGraficar.Location = new System.Drawing.Point(176, 248);
+            this.btnGraficar.Location = new System.Drawing.Point(88, 171);
             this.btnGraficar.Name = "btnGraficar";
             this.btnGraficar.Size = new System.Drawing.Size(140, 34);
             this.btnGraficar.TabIndex = 5;
@@ -100,11 +101,11 @@
             // dataGridPuntos
             // 
             this.dataGridPuntos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridPuntos.Location = new System.Drawing.Point(12, 288);
+            this.dataGridPuntos.Location = new System.Drawing.Point(12, 231);
             this.dataGridPuntos.Name = "dataGridPuntos";
             this.dataGridPuntos.RowHeadersWidth = 51;
             this.dataGridPuntos.RowTemplate.Height = 24;
-            this.dataGridPuntos.Size = new System.Drawing.Size(479, 379);
+            this.dataGridPuntos.Size = new System.Drawing.Size(479, 436);
             this.dataGridPuntos.TabIndex = 10;
             this.dataGridPuntos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridPuntos_CellContentClick);
             // 
@@ -112,7 +113,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("MV Boli", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(205, 9);
+            this.label1.Location = new System.Drawing.Point(121, 29);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(79, 22);
             this.label1.TabIndex = 16;
@@ -122,7 +123,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("MV Boli", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(205, 71);
+            this.label5.Location = new System.Drawing.Point(121, 91);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(69, 22);
             this.label5.TabIndex = 17;
@@ -132,7 +133,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("MV Boli", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(205, 131);
+            this.label3.Location = new System.Drawing.Point(293, 29);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(79, 22);
             this.label3.TabIndex = 18;
@@ -142,7 +143,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("MV Boli", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(205, 195);
+            this.label4.Location = new System.Drawing.Point(293, 93);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(69, 22);
             this.label4.TabIndex = 19;
@@ -152,11 +153,22 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("MV Boli", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(550, 80);
+            this.label2.Location = new System.Drawing.Point(554, 131);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(357, 22);
             this.label2.TabIndex = 20;
             this.label2.Text = "Algoritmo Analizador Diferencial Digital";
+            // 
+            // btnLimpiar
+            // 
+            this.btnLimpiar.Font = new System.Drawing.Font("MV Boli", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnLimpiar.Location = new System.Drawing.Point(271, 171);
+            this.btnLimpiar.Name = "btnLimpiar";
+            this.btnLimpiar.Size = new System.Drawing.Size(148, 34);
+            this.btnLimpiar.TabIndex = 34;
+            this.btnLimpiar.Text = "Limpiar";
+            this.btnLimpiar.UseVisualStyleBackColor = true;
+            this.btnLimpiar.Click += new System.EventHandler(this.btnLimpiar_Click);
             // 
             // AnalizadorDiferencialDigitalFrm
             // 
@@ -164,6 +176,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1000, 679);
+            this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
@@ -200,5 +213,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button btnLimpiar;
     }
 }

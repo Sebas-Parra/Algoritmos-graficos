@@ -27,22 +27,37 @@ namespace DrawLies2
             this.y = 0;
         }
 
-        public void ReadData(TextBox txtPuntoxi, TextBox txtPuntoyi, TextBox txtPuntox, TextBox txtPuntoy)
+        public bool ReadData(TextBox txtPuntoxi, TextBox txtPuntoyi, TextBox txtPuntox, TextBox txtPuntoy)
         {
-            try
+            if (string.IsNullOrWhiteSpace(txtPuntoxi.Text) ||
+                string.IsNullOrWhiteSpace(txtPuntoyi.Text) ||
+                string.IsNullOrWhiteSpace(txtPuntox.Text) ||
+                string.IsNullOrWhiteSpace(txtPuntoy.Text))
             {
-                xi = int.Parse(txtPuntoxi.Text);
-                yi = int.Parse(txtPuntoyi.Text);
-                x = int.Parse(txtPuntox.Text);
-                y = int.Parse(txtPuntoy.Text);
+                MessageBox.Show("Todos los campos deben estar completos.", "Error de entrada", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
             }
-            catch
+
+            if (!int.TryParse(txtPuntoxi.Text, out xi) || xi < 0 ||
+                !int.TryParse(txtPuntoyi.Text, out yi) || yi < 0 ||
+                !int.TryParse(txtPuntox.Text, out x) || x < 0 ||
+                !int.TryParse(txtPuntoy.Text, out y) || y < 0)
             {
-                MessageBox.Show("Invalid inputs", "Error Message");
+                MessageBox.Show("Los valores deben ser números enteros positivos.", "Error de entrada", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return false;
             }
+
+            if (xi == x && yi == y)
+            {
+                MessageBox.Show("El punto inicial y final no pueden ser iguales.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                return false;
+            }
+
+            return true;
         }
 
-        public void InitializeData(TextBox txtPuntoxi, TextBox txtPuntoyi, TextBox txtPuntox, TextBox txtPuntoy, PictureBox picCanvas)
+
+        public void InitializeData(TextBox txtPuntoxi, TextBox txtPuntoyi, TextBox txtPuntox, TextBox txtPuntoy, PictureBox picCanvas, DataGridView tabla)
         {
             xi = yi = x = y = 0;
 
@@ -51,6 +66,13 @@ namespace DrawLies2
 
             txtPuntoxi.Focus();
             picCanvas.Refresh();
+
+
+            tabla.Rows.Clear();
+            tabla.Columns.Clear();
+            tabla.Columns.Add("Ordinal", "Ordinal");
+            tabla.Columns.Add("X", "X");
+            tabla.Columns.Add("Y", "Y");
         }
 
         public void ConfigurarTabla(DataGridView tabla)

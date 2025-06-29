@@ -79,27 +79,29 @@ namespace DrawLies2
 
 
         //Function that read data input
-        public void ReadData(TextBox txtSide)
+        public bool ReadData(TextBox txtSide)
         {
-            if (float.Parse(txtSide.Text) <= 0 || txtSide.Text == "")
+            if (string.IsNullOrWhiteSpace(txtSide.Text))
             {
-                MessageBox.Show("Ingreso no válido....",
-                                "Mensaje de error");
+                MessageBox.Show("Ingrese el valor del lado.", "Campo vacío");
+                txtSide.Clear();
                 txtSide.Focus();
-                txtSide.Text = "";
-                return;
+                return false;
             }
-            try
-            {
 
-                side = float.Parse(txtSide.Text);
-            }
-            catch
+            bool esNumero = float.TryParse(txtSide.Text, out side);
+
+            if (!esNumero || side <= 0)
             {
-                MessageBox.Show("Ingreso no válido....",
-                                "Mensaje de error");
+                MessageBox.Show("Ingrese solo números positivos mayores que cero.", "Entrada inválida");
+                txtSide.Clear();
+                txtSide.Focus();
+                return false;
             }
+
+            return true; // Entrada válida
         }
+
 
         //Function that calculate perimeter of square
         public void PerimeterSquare()
@@ -131,7 +133,7 @@ namespace DrawLies2
         //Function that initialize data and controls
         public void InitializeData(TextBox txtSide,
                                     
-                                    PictureBox picCanvas)
+                                    PictureBox picCanvas, DataGridView tabla)
         {
             side = 0.0f;
             mPerimeter = 0.0f; mArea = 0.0f;
@@ -140,6 +142,7 @@ namespace DrawLies2
 
             txtSide.Focus();
             picCanvas.Refresh();
+            tabla.Columns.Clear();
         }
 
         //Funcstion that draw rectangle

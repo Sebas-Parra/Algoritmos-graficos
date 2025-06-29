@@ -34,6 +34,10 @@ namespace DrawLies2
         private void btnGraficar_Click(object sender, EventArgs e)
         {
             analizadorDiferencialDigital.LeerDatos(txtXi, txtYi, txtXf, txtYf);
+
+            if (!analizadorDiferencialDigital.LeerDatos(txtXi, txtYi, txtXf, txtYf))
+                return;
+
             analizadorDiferencialDigital.PlotShape(picCanvas, dataGridPuntos);
         }
 
@@ -70,6 +74,11 @@ namespace DrawLies2
         private void dataGridPuntos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void btnLimpiar_Click(object sender, EventArgs e)
+        {
+            analizadorDiferencialDigital.InicializarDatos(txtXi, txtXf, txtYi, txtYf, dataGridPuntos, picCanvas);
         }
     }
 }
