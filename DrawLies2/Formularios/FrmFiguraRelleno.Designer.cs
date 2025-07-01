@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmFiguraRelleno));
-            this.dataGridPuntos = new System.Windows.Forms.DataGridView();
             this.btnLimpiar = new System.Windows.Forms.Button();
             this.btnDibujar = new System.Windows.Forms.Button();
             this.picCanvas = new System.Windows.Forms.PictureBox();
@@ -38,25 +37,14 @@
             this.lblSide = new System.Windows.Forms.Label();
             this.txtLado = new System.Windows.Forms.TextBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridPuntos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picCanvas)).BeginInit();
             this.SuspendLayout();
-            // 
-            // dataGridPuntos
-            // 
-            this.dataGridPuntos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridPuntos.Location = new System.Drawing.Point(51, 283);
-            this.dataGridPuntos.Name = "dataGridPuntos";
-            this.dataGridPuntos.RowHeadersWidth = 51;
-            this.dataGridPuntos.RowTemplate.Height = 24;
-            this.dataGridPuntos.Size = new System.Drawing.Size(490, 371);
-            this.dataGridPuntos.TabIndex = 45;
             // 
             // btnLimpiar
             // 
             this.btnLimpiar.BackColor = System.Drawing.Color.Teal;
             this.btnLimpiar.Font = new System.Drawing.Font("MV Boli", 10.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLimpiar.Location = new System.Drawing.Point(280, 211);
+            this.btnLimpiar.Location = new System.Drawing.Point(329, 393);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(75, 37);
             this.btnLimpiar.TabIndex = 43;
@@ -68,7 +56,7 @@
             // 
             this.btnDibujar.BackColor = System.Drawing.Color.PaleTurquoise;
             this.btnDibujar.Font = new System.Drawing.Font("MV Boli", 10.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDibujar.Location = new System.Drawing.Point(178, 211);
+            this.btnDibujar.Location = new System.Drawing.Point(227, 393);
             this.btnDibujar.Name = "btnDibujar";
             this.btnDibujar.Size = new System.Drawing.Size(75, 37);
             this.btnDibujar.TabIndex = 42;
@@ -100,7 +88,7 @@
             // 
             this.lblArea.AutoSize = true;
             this.lblArea.Font = new System.Drawing.Font("MV Boli", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblArea.Location = new System.Drawing.Point(357, 185);
+            this.lblArea.Location = new System.Drawing.Point(406, 367);
             this.lblArea.Name = "lblArea";
             this.lblArea.Size = new System.Drawing.Size(0, 26);
             this.lblArea.TabIndex = 39;
@@ -109,7 +97,7 @@
             // 
             this.lblSide.AutoSize = true;
             this.lblSide.Font = new System.Drawing.Font("MV Boli", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSide.Location = new System.Drawing.Point(199, 115);
+            this.lblSide.Location = new System.Drawing.Point(248, 297);
             this.lblSide.Name = "lblSide";
             this.lblSide.Size = new System.Drawing.Size(69, 26);
             this.lblSide.TabIndex = 38;
@@ -118,7 +106,7 @@
             // txtLado
             // 
             this.txtLado.Font = new System.Drawing.Font("Segoe Print", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtLado.Location = new System.Drawing.Point(204, 144);
+            this.txtLado.Location = new System.Drawing.Point(253, 326);
             this.txtLado.Name = "txtLado";
             this.txtLado.Size = new System.Drawing.Size(100, 30);
             this.txtLado.TabIndex = 37;
@@ -128,7 +116,7 @@
             // 
             this.groupBox1.BackColor = System.Drawing.Color.Gray;
             this.groupBox1.Font = new System.Drawing.Font("MV Boli", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(178, 88);
+            this.groupBox1.Location = new System.Drawing.Point(227, 270);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(173, 100);
             this.groupBox1.TabIndex = 44;
@@ -141,7 +129,6 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.ClientSize = new System.Drawing.Size(1185, 679);
-            this.Controls.Add(this.dataGridPuntos);
             this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.btnDibujar);
             this.Controls.Add(this.picCanvas);
@@ -153,7 +140,6 @@
             this.Name = "FrmFiguraRelleno";
             this.Text = "FrmFiguraRelleno";
             this.Load += new System.EventHandler(this.FrmFiguraRelleno_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridPuntos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.picCanvas)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -161,8 +147,6 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView dataGridPuntos;
         private System.Windows.Forms.Button btnLimpiar;
         private System.Windows.Forms.Button btnDibujar;
         private System.Windows.Forms.PictureBox picCanvas;

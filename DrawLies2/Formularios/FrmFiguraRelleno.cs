@@ -33,12 +33,12 @@ namespace DrawLies2
         private void FrmFiguraRelleno_Load(object sender, EventArgs e)
         {
             objFiguraRelleno.InitializeData(txtLado, picCanvas);
-            objFiguraRelleno.ConfigurarTabla(dataGridPuntos);
 
-            // Aquí se asocia el evento de clic
             picCanvas.MouseClick += async (s, e2) =>
             {
-                await objFiguraRelleno.FloodFillAsync(e2.X, e2.Y, picCanvas, dataGridPuntos);
+                btnLimpiar.Enabled = false;
+                await objFiguraRelleno.FloodFillAsync(e2.X, e2.Y, picCanvas);
+                btnLimpiar.Enabled = true;
             };
         }
 

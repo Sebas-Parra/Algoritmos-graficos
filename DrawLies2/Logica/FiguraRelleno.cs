@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Security.Policy;
 using System.Text;
@@ -15,7 +16,7 @@ namespace DrawLies2
         private List<PointF> listaPuntos;
         private int nlado;
         private Graphics mGraph;
-        private const float SF = 20;
+        private const float SF = 10;
         private Pen mPen;
 
         private Bitmap lienzo;
@@ -40,58 +41,79 @@ namespace DrawLies2
             }
         }
 
-        public void InitializeData(TextBox txtSide,
-
-                                    PictureBox picCanvas)
+        public void InitializeData(TextBox txtSide, PictureBox picCanvas)
         {
             nlado = 0;
-
             txtSide.Text = "";
-
             txtSide.Focus();
-            picCanvas.Refresh();
+
+            listaPuntos.Clear();
+
+            lienzo?.Dispose();
+            lienzo = new Bitmap(picCanvas.Width, picCanvas.Height);
+
+            using (Graphics g = Graphics.FromImage(lienzo))
+            {
+                g.Clear(Color.White);
+            }
+
+            picCanvas.Image = lienzo; 
+            picCanvas.Refresh(); 
         }
 
-        public async Task FloodFillAsync(int x, int y, PictureBox picCanvas, DataGridView dgv)
+
+        public async Task FloodFillAsync(int x, int y, PictureBox picCanvas)
         {
+            if (listaPuntos.Count == 0) return;
+
+            GraphicsPath path = new GraphicsPath();
+            path.AddPolygon(listaPuntos.ToArray());
+            if (!path.IsVisible(x, y)) return;
+
             this.pic = picCanvas;
-            this.tabla = dgv;
-            if (lienzo == null)
+
+            // ⚠️ Copiar el lienzo localmente
+            Bitmap lienzoLocal = lienzo;
+            if (lienzoLocal == null)
             {
                 MessageBox.Show("Primero dibuja la figura.");
                 return;
             }
 
+            Color targetColor;
+            lock (this)
+            {
+                targetColor = lienzoLocal.GetPixel(x, y);
+            }
 
-            Color targetColor = lienzo.GetPixel(x, y);
-            await Task.Run(() => FloodFill(x, y, targetColor));
+            await Task.Run(() => FloodFill(x, y, targetColor, lienzoLocal));
         }
 
-        private void FloodFill(int x, int y, Color targetColor)
+
+        private void FloodFill(int x, int y, Color targetColor, Bitmap lienzoLocal)
         {
-            if (x < 0 || y < 0 || x >= lienzo.Width || y >= lienzo.Height)
+            if (x < 0 || y < 0 || x >= lienzoLocal.Width || y >= lienzoLocal.Height)
                 return;
 
-            if (lienzo.GetPixel(x, y).ToArgb() != targetColor.ToArgb() ||
-                lienzo.GetPixel(x, y).ToArgb() == fillColor.ToArgb())
+            if (lienzoLocal.GetPixel(x, y).ToArgb() != targetColor.ToArgb() ||
+                lienzoLocal.GetPixel(x, y).ToArgb() == fillColor.ToArgb())
                 return;
 
-            lienzo.SetPixel(x, y, fillColor);
+            lienzoLocal.SetPixel(x, y, fillColor);
 
             pic.Invoke((MethodInvoker)(() =>
             {
-                pic.Image = lienzo;
-                tabla.Rows.Add(ordinal++, x, y);
+                pic.Image = lienzoLocal;
             }));
 
             Thread.Sleep(10);
 
-
-            FloodFill(x, y - 1, targetColor); // Norte
-            FloodFill(x + 1, y, targetColor); // Este
-            FloodFill(x, y + 1, targetColor); // Sur
-            FloodFill(x - 1, y, targetColor); // Oeste
+            FloodFill(x, y - 1, targetColor, lienzoLocal); // Norte
+            FloodFill(x + 1, y, targetColor, lienzoLocal); // Este
+            FloodFill(x, y + 1, targetColor, lienzoLocal); // Sur
+            FloodFill(x - 1, y, targetColor, lienzoLocal); // Oeste
         }
+
 
         public void ConfigurarTabla(DataGridView tabla)
         {
