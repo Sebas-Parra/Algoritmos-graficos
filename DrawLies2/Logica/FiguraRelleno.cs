@@ -86,32 +86,45 @@ namespace DrawLies2
                 targetColor = lienzoLocal.GetPixel(x, y);
             }
 
-            await Task.Run(() => FloodFill(x, y, targetColor, lienzoLocal));
+            await Task.Run(() => FloodFillIterativo(x, y, targetColor, lienzoLocal));
         }
 
 
-        private void FloodFill(int x, int y, Color targetColor, Bitmap lienzoLocal)
+        private void FloodFillIterativo(int x, int y, Color targetColor, Bitmap lienzoLocal)
         {
-            if (x < 0 || y < 0 || x >= lienzoLocal.Width || y >= lienzoLocal.Height)
+            if (targetColor.ToArgb() == fillColor.ToArgb())
                 return;
 
-            if (lienzoLocal.GetPixel(x, y).ToArgb() != targetColor.ToArgb() ||
-                lienzoLocal.GetPixel(x, y).ToArgb() == fillColor.ToArgb())
-                return;
+            Stack<Point> stack = new Stack<Point>();
+            stack.Push(new Point(x, y));
 
-            lienzoLocal.SetPixel(x, y, fillColor);
-
-            pic.Invoke((MethodInvoker)(() =>
+            while (stack.Count > 0)
             {
-                pic.Image = lienzoLocal;
-            }));
+                Point p = stack.Pop();
+                int px = p.X;
+                int py = p.Y;
 
-            Thread.Sleep(10);
+                if (px < 0 || py < 0 || px >= lienzoLocal.Width || py >= lienzoLocal.Height)
+                    continue;
 
-            FloodFill(x, y - 1, targetColor, lienzoLocal); // Norte
-            FloodFill(x + 1, y, targetColor, lienzoLocal); // Este
-            FloodFill(x, y + 1, targetColor, lienzoLocal); // Sur
-            FloodFill(x - 1, y, targetColor, lienzoLocal); // Oeste
+                Color currentColor = lienzoLocal.GetPixel(px, py);
+                if (currentColor.ToArgb() != targetColor.ToArgb() || currentColor.ToArgb() == fillColor.ToArgb())
+                    continue;
+
+                lienzoLocal.SetPixel(px, py, fillColor);
+
+                // Opcional: Actualiza la imagen en el PictureBox si quieres ver el proceso
+                // pic.Invoke((MethodInvoker)(() => { pic.Image = lienzoLocal; }));
+                // Thread.Sleep(1);
+
+                stack.Push(new Point(px, py - 1)); // Norte
+                stack.Push(new Point(px + 1, py)); // Este
+                stack.Push(new Point(px, py + 1)); // Sur
+                stack.Push(new Point(px - 1, py)); // Oeste
+            }
+
+            // Actualiza la imagen al final
+            pic.Invoke((MethodInvoker)(() => { pic.Image = lienzoLocal; }));
         }
 
 
