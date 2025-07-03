@@ -15,6 +15,8 @@ namespace DrawLies2
         private static FrmBezierAnimado instance = null;
         private CurvasBezier curva = new CurvasBezier();
         private Timer animacion;
+        private PointF? puntoSeleccionado = null;
+        private int indiceSeleccionado = -1;
 
         public static FrmBezierAnimado Instance
         {
@@ -32,6 +34,9 @@ namespace DrawLies2
             InitializeComponent();
 
             picCanvas.MouseClick += PicCanvas_MouseClick;
+            picCanvas.MouseDown += picCanvas_MouseDown;
+            picCanvas.MouseMove += picCanvas_MouseMove;
+            picCanvas.MouseUp += picCanvas_MouseUp;
 
             numericUpDown1.Enabled = false;
 
@@ -73,6 +78,37 @@ namespace DrawLies2
                 }
             }
         }
+
+        private void picCanvas_MouseDown(object sender, MouseEventArgs e)
+        {
+            for (int i = 0; i < curva.PuntosControl.Count; i++)
+            {
+                var p = curva.PuntosControl[i];
+                var distancia = Math.Sqrt(Math.Pow(e.X - p.X, 2) + Math.Pow(e.Y - p.Y, 2));
+                if (distancia < 6)
+                {
+                    puntoSeleccionado = p;
+                    indiceSeleccionado = i;
+                    break;
+                }
+            }
+        }
+
+        private void picCanvas_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (puntoSeleccionado.HasValue && indiceSeleccionado != -1 && e.Button == MouseButtons.Left)
+            {
+                curva.PuntosControl[indiceSeleccionado] = e.Location;
+                Redibujar();
+            }
+        }
+
+        private void picCanvas_MouseUp(object sender, MouseEventArgs e)
+        {
+            puntoSeleccionado = null;
+            indiceSeleccionado = -1;
+        }
+
 
         private void Animacion_Tick(object sender, EventArgs e)
         {

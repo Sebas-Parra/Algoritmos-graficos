@@ -38,7 +38,7 @@
             // 
             this.btnLimpiar.BackColor = System.Drawing.Color.CadetBlue;
             this.btnLimpiar.Font = new System.Drawing.Font("MV Boli", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLimpiar.Location = new System.Drawing.Point(151, 371);
+            this.btnLimpiar.Location = new System.Drawing.Point(151, 380);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(94, 33);
             this.btnLimpiar.TabIndex = 3;
@@ -48,7 +48,7 @@
             // picCanvas
             // 
             this.picCanvas.BackColor = System.Drawing.SystemColors.ActiveBorder;
-            this.picCanvas.Location = new System.Drawing.Point(151, 29);
+            this.picCanvas.Location = new System.Drawing.Point(151, 46);
             this.picCanvas.Name = "picCanvas";
             this.picCanvas.Size = new System.Drawing.Size(499, 305);
             this.picCanvas.TabIndex = 2;

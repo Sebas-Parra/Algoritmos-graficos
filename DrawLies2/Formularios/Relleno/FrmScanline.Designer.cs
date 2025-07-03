@@ -44,7 +44,7 @@
             // 
             this.btnLimpiar.BackColor = System.Drawing.Color.Teal;
             this.btnLimpiar.Font = new System.Drawing.Font("MV Boli", 10.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnLimpiar.Location = new System.Drawing.Point(328, 386);
+            this.btnLimpiar.Location = new System.Drawing.Point(171, 253);
             this.btnLimpiar.Name = "btnLimpiar";
             this.btnLimpiar.Size = new System.Drawing.Size(75, 37);
             this.btnLimpiar.TabIndex = 52;
@@ -56,7 +56,7 @@
             // 
             this.btnDibujar.BackColor = System.Drawing.Color.PaleTurquoise;
             this.btnDibujar.Font = new System.Drawing.Font("MV Boli", 10.8F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnDibujar.Location = new System.Drawing.Point(226, 386);
+            this.btnDibujar.Location = new System.Drawing.Point(69, 253);
             this.btnDibujar.Name = "btnDibujar";
             this.btnDibujar.Size = new System.Drawing.Size(75, 37);
             this.btnDibujar.TabIndex = 51;
@@ -67,7 +67,7 @@
             // picCanvas
             // 
             this.picCanvas.BackColor = System.Drawing.SystemColors.HighlightText;
-            this.picCanvas.Location = new System.Drawing.Point(642, 130);
+            this.picCanvas.Location = new System.Drawing.Point(307, 121);
             this.picCanvas.Name = "picCanvas";
             this.picCanvas.Size = new System.Drawing.Size(524, 467);
             this.picCanvas.TabIndex = 50;
@@ -78,7 +78,7 @@
             this.lblTitle.AutoSize = true;
             this.lblTitle.Font = new System.Drawing.Font("MV Boli", 16.2F, ((System.Drawing.FontStyle)(((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic) 
                 | System.Drawing.FontStyle.Underline))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTitle.Location = new System.Drawing.Point(475, 48);
+            this.lblTitle.Location = new System.Drawing.Point(260, 40);
             this.lblTitle.Name = "lblTitle";
             this.lblTitle.Size = new System.Drawing.Size(210, 37);
             this.lblTitle.TabIndex = 49;
@@ -88,7 +88,7 @@
             // 
             this.lblArea.AutoSize = true;
             this.lblArea.Font = new System.Drawing.Font("MV Boli", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblArea.Location = new System.Drawing.Point(405, 360);
+            this.lblArea.Location = new System.Drawing.Point(248, 227);
             this.lblArea.Name = "lblArea";
             this.lblArea.Size = new System.Drawing.Size(0, 26);
             this.lblArea.TabIndex = 48;
@@ -97,7 +97,7 @@
             // 
             this.lblSide.AutoSize = true;
             this.lblSide.Font = new System.Drawing.Font("MV Boli", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblSide.Location = new System.Drawing.Point(247, 290);
+            this.lblSide.Location = new System.Drawing.Point(90, 157);
             this.lblSide.Name = "lblSide";
             this.lblSide.Size = new System.Drawing.Size(69, 26);
             this.lblSide.TabIndex = 47;
@@ -106,7 +106,7 @@
             // txtLado
             // 
             this.txtLado.Font = new System.Drawing.Font("Segoe Print", 7.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtLado.Location = new System.Drawing.Point(252, 319);
+            this.txtLado.Location = new System.Drawing.Point(95, 186);
             this.txtLado.Name = "txtLado";
             this.txtLado.Size = new System.Drawing.Size(100, 30);
             this.txtLado.TabIndex = 46;
@@ -116,7 +116,7 @@
             // 
             this.groupBox1.BackColor = System.Drawing.Color.Gray;
             this.groupBox1.Font = new System.Drawing.Font("MV Boli", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(226, 263);
+            this.groupBox1.Location = new System.Drawing.Point(69, 130);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(173, 100);
             this.groupBox1.TabIndex = 53;
@@ -128,7 +128,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
-            this.ClientSize = new System.Drawing.Size(1213, 700);
+            this.ClientSize = new System.Drawing.Size(859, 640);
             this.Controls.Add(this.btnLimpiar);
             this.Controls.Add(this.btnDibujar);
             this.Controls.Add(this.picCanvas);

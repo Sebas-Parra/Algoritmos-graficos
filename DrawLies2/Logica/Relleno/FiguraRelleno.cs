@@ -113,9 +113,7 @@ namespace DrawLies2
 
                 lienzoLocal.SetPixel(px, py, fillColor);
 
-                // Opcional: Actualiza la imagen en el PictureBox si quieres ver el proceso
-                // pic.Invoke((MethodInvoker)(() => { pic.Image = lienzoLocal; }));
-                // Thread.Sleep(1);
+              
 
                 stack.Push(new Point(px, py - 1)); // Norte
                 stack.Push(new Point(px + 1, py)); // Este
@@ -123,7 +121,6 @@ namespace DrawLies2
                 stack.Push(new Point(px - 1, py)); // Oeste
             }
 
-            // Actualiza la imagen al final
             pic.Invoke((MethodInvoker)(() => { pic.Image = lienzoLocal; }));
         }
 

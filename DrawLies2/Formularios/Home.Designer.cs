@@ -131,7 +131,6 @@
             this.TitleDDA.TabIndex = 12;
             this.TitleDDA.TabStop = false;
             this.TitleDDA.Text = "Algoritmo DDA";
-            this.TitleDDA.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // TitleBresenham
             // 
@@ -185,7 +184,7 @@
             this.TitleRelleno.Controls.Add(this.label7);
             this.TitleRelleno.Controls.Add(this.btnRellenoFiguras);
             this.TitleRelleno.Font = new System.Drawing.Font("MV Boli", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TitleRelleno.Location = new System.Drawing.Point(414, 216);
+            this.TitleRelleno.Location = new System.Drawing.Point(394, 216);
             this.TitleRelleno.Name = "TitleRelleno";
             this.TitleRelleno.Size = new System.Drawing.Size(217, 258);
             this.TitleRelleno.TabIndex = 15;
@@ -213,7 +212,6 @@
             this.TitleElipses.TabIndex = 15;
             this.TitleElipses.TabStop = false;
             this.TitleElipses.Text = "Bresenham para elipses";
-            this.TitleElipses.Enter += new System.EventHandler(this.groupBox1_Enter_1);
             // 
             // btnBresenhamElipse
             // 
@@ -230,7 +228,7 @@
             this.TitleScanline.BackColor = System.Drawing.Color.LavenderBlush;
             this.TitleScanline.Controls.Add(this.btnScanline);
             this.TitleScanline.Font = new System.Drawing.Font("MV Boli", 10.2F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TitleScanline.Location = new System.Drawing.Point(414, 504);
+            this.TitleScanline.Location = new System.Drawing.Point(394, 504);
             this.TitleScanline.Name = "TitleScanline";
             this.TitleScanline.Size = new System.Drawing.Size(217, 100);
             this.TitleScanline.TabIndex = 16;
@@ -371,7 +369,7 @@
             this.lbl2.AutoSize = true;
             this.lbl2.BackColor = System.Drawing.Color.LightSteelBlue;
             this.lbl2.Font = new System.Drawing.Font("Papyrus", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lbl2.Location = new System.Drawing.Point(412, 135);
+            this.lbl2.Location = new System.Drawing.Point(392, 135);
             this.lbl2.Name = "lbl2";
             this.lbl2.Size = new System.Drawing.Size(219, 62);
             this.lbl2.TabIndex = 23;

@@ -14,6 +14,9 @@ namespace DrawLies2
     {
         private static FrmBSpline instance = null;
         CurvaBSpline curva = new CurvaBSpline();
+        private PointF? puntoSeleccionado = null;
+        private int indiceSeleccionado = -1;
+        private Timer animacion;
 
         public static FrmBSpline Instance
         {
@@ -29,7 +32,15 @@ namespace DrawLies2
         public FrmBSpline()
         {
             InitializeComponent();
+            picCanvas.MouseDown += picCanvas_MouseDown;
+            picCanvas.MouseMove += picCanvas_MouseMove;
+            picCanvas.MouseUp += picCanvas_MouseUp;
+
             picCanvas.MouseClick += PicCanvas_MouseClick;
+
+            animacion = new Timer();
+            animacion.Interval = 30;
+            animacion.Tick += Animacion_Tick;
         }
 
         private void picCanvas_Click(object sender, EventArgs e)
@@ -46,6 +57,51 @@ namespace DrawLies2
                 Redibujar();
             }
         }
+
+        private void picCanvas_MouseDown(object sender, MouseEventArgs e)
+        {
+            for (int i = 0; i < curva.PuntosControl.Count; i++)
+            {
+                var p = curva.PuntosControl[i];
+                var distancia = Math.Sqrt(Math.Pow(e.X - p.X, 2) + Math.Pow(e.Y - p.Y, 2));
+                if (distancia < 6)
+                {
+                    puntoSeleccionado = p;
+                    indiceSeleccionado = i;
+                    break;
+                }
+            }
+        }
+
+        private void picCanvas_MouseMove(object sender, MouseEventArgs e)
+        {
+            if (puntoSeleccionado.HasValue && indiceSeleccionado != -1 && e.Button == MouseButtons.Left)
+            {
+                curva.PuntosControl[indiceSeleccionado] = e.Location;
+                curva.GenerarCurvaCompleta(); // Regenera la curva automáticamente
+                Redibujar();
+            }
+        }
+
+        private void picCanvas_MouseUp(object sender, MouseEventArgs e)
+        {
+            puntoSeleccionado = null;
+            indiceSeleccionado = -1;
+        }
+
+        private void Animacion_Tick(object sender, EventArgs e)
+        {
+            var punto = curva.AvanzarPaso();
+            if (punto.HasValue)
+            {
+                Redibujar();
+            }
+            else
+            {
+                animacion.Stop();
+            }
+        }
+
 
         private void btnLimpiar_Click(object sender, EventArgs e)
         {

@@ -15,210 +15,102 @@ namespace DrawLies2
         public Home()
         {
             InitializeComponent();
-            this.IsMdiContainer = true;
-
+            // Quitar si estaba antes
+            // this.IsMdiContainer = true;
         }
 
-        private void groupBox1_Enter(object sender, EventArgs e)
+        private void Home_Load(object sender, EventArgs e)
         {
-
         }
 
         private void btnAnalizadorDiferencial_Click(object sender, EventArgs e)
         {
             AnalizadorDiferencialDigitalFrm frmAnalizador = AnalizadorDiferencialDigitalFrm.Instance;
-            frmAnalizador.MdiParent = this;
+            this.Hide();
             frmAnalizador.Show();
-
-            frmAnalizador.FormClosed += (s, args) => RestaurarControles();
-
-
-            EliminarControles();
+            frmAnalizador.FormClosed += (s, args) => this.Show();
         }
 
         private void btnBresenham_Click(object sender, EventArgs e)
         {
             BresenhamFrm bresenhamFrm = BresenhamFrm.Instance;
-            bresenhamFrm.MdiParent = this;
+            this.Hide();
             bresenhamFrm.Show();
-
-            bresenhamFrm.FormClosed += (s, args) => RestaurarControles();
-
-
-            EliminarControles();
+            bresenhamFrm.FormClosed += (s, args) => this.Show();
         }
 
         private void btnCircunferencia_Click(object sender, EventArgs e)
         {
             CirculoFrm circuloFrm = CirculoFrm.Instance;
-            circuloFrm.MdiParent = this;
+            this.Hide();
             circuloFrm.Show();
-
-            circuloFrm.FormClosed += (s, args) => RestaurarControles();
-
-
-            EliminarControles();
+            circuloFrm.FormClosed += (s, args) => this.Show();
         }
 
         private void btnRelleno_Click(object sender, EventArgs e)
         {
             FrmCuadrado frmCuadrado = FrmCuadrado.Instance;
-            frmCuadrado.MdiParent = this;
+            this.Hide();
             frmCuadrado.Show();
-
-            frmCuadrado.FormClosed += (s, args) => RestaurarControles();
-
-
-            EliminarControles();
+            frmCuadrado.FormClosed += (s, args) => this.Show();
         }
 
         private void btnRellenoFiguras_Click(object sender, EventArgs e)
         {
             FrmFiguraRelleno frmFiguraRelleno = FrmFiguraRelleno.Instance;
-            frmFiguraRelleno.MdiParent = this;
+            this.Hide();
             frmFiguraRelleno.Show();
-
-            frmFiguraRelleno.FormClosed += (s, args) => RestaurarControles();
-
-
-            EliminarControles();
-        }
-
-        private void Home_Load(object sender, EventArgs e)
-        {
-
+            frmFiguraRelleno.FormClosed += (s, args) => this.Show();
         }
 
         private void btnBresenhamElipse_Click(object sender, EventArgs e)
         {
             ElipseFrm elipseFrm = new ElipseFrm();
-            elipseFrm.MdiParent = this;
+            this.Hide();
             elipseFrm.Show();
-
-            elipseFrm.FormClosed += (s, args) => RestaurarControles();
-
-
-            EliminarControles();
-        }
-
-        private void groupBox1_Enter_1(object sender, EventArgs e)
-        {
-
+            elipseFrm.FormClosed += (s, args) => this.Show();
         }
 
         private void btnScanline_Click(object sender, EventArgs e)
         {
             FrmScanline frmScanline = new FrmScanline();
-            frmScanline.MdiParent = this;
+            this.Hide();
             frmScanline.Show();
-
-            frmScanline.FormClosed += (s, args) => RestaurarControles();
-
-
-            EliminarControles();
+            frmScanline.FormClosed += (s, args) => this.Show();
         }
 
         private void btnCohenSutherland_Click(object sender, EventArgs e)
         {
             FrmCohenSutherland frmCohenSutherland = new FrmCohenSutherland();
-            frmCohenSutherland.MdiParent = this;
+            this.Hide();
             frmCohenSutherland.Show();
-
-            frmCohenSutherland.FormClosed += (s, args) => RestaurarControles();
-
-
-            EliminarControles();
-
+            frmCohenSutherland.FormClosed += (s, args) => this.Show();
         }
 
         private void btnSutherlandHodgman_Click(object sender, EventArgs e)
         {
             FrmHodgman frmHodgman = new FrmHodgman();
-            frmHodgman.MdiParent = this;
+            this.Hide();
             frmHodgman.Show();
-
-            frmHodgman.FormClosed += (s, args) => RestaurarControles();
-
-
-            EliminarControles();
+            frmHodgman.FormClosed += (s, args) => this.Show();
         }
 
         private void btnBezier_Click(object sender, EventArgs e)
         {
             FrmBezierAnimado frmBezier = new FrmBezierAnimado();
-            frmBezier.MdiParent = this;
+            this.Hide();
             frmBezier.Show();
-
-            frmBezier.FormClosed += (s, args) => RestaurarControles();
-
-            EliminarControles();
+            frmBezier.FormClosed += (s, args) => this.Show();
         }
 
         private void btnBSplines_Click(object sender, EventArgs e)
         {
             FrmBSpline frmBSpline = new FrmBSpline();
-            frmBSpline.MdiParent = this;
+            this.Hide();
             frmBSpline.Show();
-
-            frmBSpline.FormClosed += (s, args) => RestaurarControles();
-
-
-            EliminarControles();
+            frmBSpline.FormClosed += (s, args) => this.Show();
         }
 
-        public void EliminarControles()
-        {
-            TitleDDA.Visible = false;
-            btnAnalizadorDiferencial.Visible = false;
-            TitleBresenham.Visible = false;
-            btnBresenham.Visible = false;
-            TitleCirculos.Visible = false;
-            btnCircunferencia.Visible = false;
-            TitleRelleno.Visible = false;
-            lblTitleGeneral.Visible = false;
-            TitleElipses.Visible = false;
-            btnBresenhamElipse.Visible = false;
-            TitleScanline.Visible = false;
-            btnScanline.Visible = false;
-            TitleCohenSutherland.Visible = false;
-            btnCohenSutherland.Visible = false;
-            TitleSutherladnHodgman.Visible = false;
-            btnSutherlandHodgman.Visible = false;
-            TitleBezier.Visible = false;
-            btnBezier.Visible = false;
-            TitleBSplines.Visible = false;
-            btnBSplines.Visible = false;
-            lbl1.Visible = false;
-            lbl2.Visible = false;
-            lbl3.Visible = false;
-            lbl4.Visible = false;
 
-        }
-
-        public void RestaurarControles()
-        {
-            TitleDDA.Visible = true;
-            btnAnalizadorDiferencial.Visible = true;
-            TitleBresenham.Visible = true;
-            btnBresenham.Visible = true;
-            TitleCirculos.Visible = true;
-            btnCircunferencia.Visible = true;
-            TitleRelleno.Visible = true;
-            lblTitleGeneral.Visible = true;
-            TitleElipses.Visible = true;
-            btnBresenhamElipse.Visible = true;
-            TitleScanline.Visible = true;
-            btnScanline.Visible = true;
-            TitleCohenSutherland.Visible = true;
-            btnCohenSutherland.Visible = true;
-            TitleSutherladnHodgman.Visible = true;
-            btnSutherlandHodgman.Visible = true;
-            TitleBezier.Visible = true;
-            btnBezier.Visible = true;
-            TitleBSplines.Visible = true;
-            btnBSplines.Visible = true;
-        }
-
-    
     }
 }
